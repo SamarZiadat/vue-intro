@@ -6,3 +6,9 @@ input[type="text"] {
   margin: 10px 0;
   display: block;
 }
+
+/* Attribute to stop an expression appearing to user as plain text during app load: */
+
+[v-cloak] {
+  display: none;
+}
