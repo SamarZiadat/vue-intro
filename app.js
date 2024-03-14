@@ -1,31 +1,36 @@
 const vm = Vue.createApp({
-    data() {
-        return {
-            firstName: 'John',
-            middleName: '',
-            lastName: 'Doe',
-            url: 'http://google.com',
-            raw_url: '<a href="http://google.com" target="_blank">Google</a>',
-            age: 20
-        }
+  data() {
+    return {
+      firstName: "John",
+      middleName: "",
+      lastName: "Doe",
+      url: "http://google.com",
+      raw_url: '<a href="http://google.com" target="_blank">Google</a>',
+      age: 20,
+    };
+  },
+  methods: {
+    increment() {
+      this.age++;
     },
-    methods: {
-        fullName() {
-            return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
-        },
-        increment() {
-            this.age++
-        },
-        updateLastName(msg, event) {
-            console.log(msg)
+    updateLastName(msg, event) {
+      // console.log(msg)
 
-            this.lastName = event.target.value
-        },
-        updateMiddleName(event) {
-            this.middleName = event.target.value
-        }
-    }
-}).mount('#app')
+      this.lastName = event.target.value;
+    },
+    updateMiddleName(event) {
+      this.middleName = event.target.value;
+    },
+  },
+  computed: {
+    fullName() {
+      console.log("Full name computed property was called!");
+      return `${this.firstName} ${
+        this.middleName
+      } ${this.lastName.toUpperCase()}`;
+    },
+  },
+}).mount("#app");
 
 // setTimeout(() => {
 //    vm.firstName = 'Bob';
